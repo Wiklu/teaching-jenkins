@@ -1,7 +1,7 @@
 run_jenkins:
-	docker run -d --name jenkins-wsb \
-		-p 8080:8080 \
-		-v $$(pwd)/jenkins:/var/jenkins_home \
+	docker run -d --name jenkins-wsb /
+		-p 9090:8080 /
+		-v $$(pwd)/jenkins:/var/jenkins_home/
 		devops/jenkins
 
 start_jenkins:
@@ -14,4 +14,5 @@ build_jenkins:
 	docker build -t devops/jenkins -f Dockerfile .
 
 show_me_password:
-	cat jenkins/secrets/initialAdminPassword
+	#cat jenkins/secrets/initialAdminPassword
+   	cat /var/lib/jenkins/secrets/initialAdminPassword
